@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/car-sharing-app/static/css/main.7acaea2f.css",
-    "main.js": "/car-sharing-app/static/js/main.07d3183d.js",
+    "main.js": "/car-sharing-app/static/js/main.a5246a8d.js",
+    "static/js/983.3d121b56.chunk.js": "/car-sharing-app/static/js/983.3d121b56.chunk.js",
+    "static/js/17.3e5b1e21.chunk.js": "/car-sharing-app/static/js/17.3e5b1e21.chunk.js",
+    "static/js/697.b7bb1a08.chunk.js": "/car-sharing-app/static/js/697.b7bb1a08.chunk.js",
     "index.html": "/car-sharing-app/index.html",
-    "main.7acaea2f.css.map": "/car-sharing-app/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/car-sharing-app/static/js/main.07d3183d.js.map"
+    "main.a5246a8d.js.map": "/car-sharing-app/static/js/main.a5246a8d.js.map",
+    "983.3d121b56.chunk.js.map": "/car-sharing-app/static/js/983.3d121b56.chunk.js.map",
+    "17.3e5b1e21.chunk.js.map": "/car-sharing-app/static/js/17.3e5b1e21.chunk.js.map",
+    "697.b7bb1a08.chunk.js.map": "/car-sharing-app/static/js/697.b7bb1a08.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.a5246a8d.js"
   ]
 }
