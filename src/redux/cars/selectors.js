@@ -17,3 +17,7 @@ export const selectFilter = state => {
 export const selectPagination = state => {
   return state.pagination;
 };
+
+export const selectFavorites = state => {
+  return state.favorites;
+};

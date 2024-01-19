@@ -1,10 +1,10 @@
-import { Searchbar } from 'components/Searchbar/Searchbar';
+import { FavoriteCarsList } from 'components/FavoriteCarsList/FavoriteCarsList';
 import { Section } from 'components/Section/Section';
 
 const FavoritesPage = () => {
   return (
     <Section>
-      <Searchbar />
+      <FavoriteCarsList />
     </Section>
   );
 };
