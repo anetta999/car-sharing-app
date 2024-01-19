@@ -1,32 +1,43 @@
-import { Button } from 'components/Button/Button';
 import carMarks from 'data/makes.json';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/cars/filterSlice';
-import { selectFilter } from 'redux/cars/selectors';
+import { Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { fetchCars } from 'redux/cars/operations';
 
 export const Searchbar = () => {
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch(setFilter);
+  const dispatch = useDispatch();
 
   return (
     <>
-      <label>
-        Car brand
-        <select
-          value={filter}
-          onChange={e => {
-            dispatch(setFilter(e.target.value));
-          }}
-        >
-          <option value="Enter the text">Enter the text</option>
-          {carMarks.map(mark => (
-            <option key={mark} value={mark}>
-              {mark}
-            </option>
-          ))}
-        </select>
-      </label>
-      <Button>Search</Button>
+      <Formik
+        initialValues={{ selectedMark: 'Enter some text' }}
+        onSubmit={(values, actions) => {
+          const { selectedMark } = values;
+          if (selectedMark === 'Enter some text') {
+            return;
+          }
+          dispatch(fetchCars({ value: selectedMark }));
+          actions.resetForm();
+        }}
+      >
+        {({ values }) => (
+          <Form>
+            <label>
+              Car brand
+              <Field name="selectedMark" as="select">
+                <option value={values.selectedMark === 'Enter some text'}>
+                  Enter some text
+                </option>
+                {carMarks.map(mark => (
+                  <option key={mark} value={mark}>
+                    {mark}
+                  </option>
+                ))}
+              </Field>
+            </label>
+            <button type="submit">Search</button>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

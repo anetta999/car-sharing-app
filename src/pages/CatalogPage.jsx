@@ -5,15 +5,22 @@ import { Section } from 'components/Section/Section';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCars } from 'redux/cars/operations';
-import { selectError, selectLoading } from 'redux/cars/selectors';
+import {
+  selectCars,
+  selectError,
+  selectLoading,
+  selectPagination,
+} from 'redux/cars/selectors';
 
 export const CatalogPage = () => {
   const dispatch = useDispatch();
+  const cars = useSelector(selectCars);
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const { currentPage } = useSelector(selectPagination);
 
   useEffect(() => {
-    dispatch(fetchCars());
+    dispatch(fetchCars({ page: 1 }));
   }, [dispatch]);
 
   return (
@@ -22,7 +29,7 @@ export const CatalogPage = () => {
         {isLoading && !error && <p>Loading...</p>}
         <Searchbar />
         <CarList />
-        <LoadMoreButton />
+        {cars.length > 0 && !isLoading && currentPage < 3 && <LoadMoreButton />}
       </Section>
     </>
   );
