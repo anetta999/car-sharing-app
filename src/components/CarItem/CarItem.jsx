@@ -1,3 +1,5 @@
+import { Button } from 'components/Button/Button';
+import { LearnMoreModal } from 'components/LearnMoreModal/LearnMoreModal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromFavorites, setFavorites } from 'redux/cars/favoritesSlice';
@@ -21,6 +23,11 @@ export const CarItem = ({ car }) => {
   const [isFavorited, setIsFavorited] = useState(
     favorites.some(favorite => favorite.id === car.id)
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(prevIsModalOpen => !prevIsModalOpen);
+  };
 
   const handleSetFavorites = () => {
     dispatch(setFavorites(car));
@@ -51,6 +58,14 @@ export const CarItem = ({ car }) => {
         <p>{mileage}</p>
         <p>{functionalities[0]}</p>
       </div>
+      <Button onClick={toggleModal}>Learn more</Button>
+      {isModalOpen && (
+        <LearnMoreModal
+          onClose={toggleModal}
+          car={car}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </>
   );
 };
