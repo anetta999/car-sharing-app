@@ -4,6 +4,13 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromFavorites, setFavorites } from 'redux/cars/favoritesSlice';
 import { selectFavorites } from 'redux/cars/selectors';
+import {
+  CarDetails,
+  CarDetailsList,
+  CarImg,
+  CarModel,
+  CarTitle,
+} from './CarItem.styled';
 
 export const CarItem = ({ car }) => {
   const {
@@ -47,17 +54,26 @@ export const CarItem = ({ car }) => {
       >
         {isFavorited ? 'Remove from favorites' : 'Add to favorites'}
       </button>
-      <img src={img} alt={make} />
-      <div>
-        <h2>{`${make} ${model}, ${year}`}</h2>
+      <CarImg src={img} alt={make} width="274px" />
+      <CarTitle>
+        <span>
+          <span>{make}</span> <CarModel>{`${model},`}</CarModel>
+          <span>{year}</span>
+        </span>
         <span>{rentalPrice}</span>
-        <p>{address}</p>
-        <p>{rentalCompany}</p>
-        <p>{type}</p>
-        <p>{model}</p>
-        <p>{mileage}</p>
-        <p>{functionalities[0]}</p>
-      </div>
+      </CarTitle>
+      <CarDetailsList>
+        <li>
+          <CarDetails>{address.split(',').splice(-2, 2).join(' ')}</CarDetails>
+          <CarDetails>{rentalCompany}</CarDetails>
+        </li>
+        <li>
+          <CarDetails>{type}</CarDetails>
+          <CarDetails>{model}</CarDetails>
+          <CarDetails>{mileage}</CarDetails>
+          <CarDetails>{functionalities[0]}</CarDetails>
+        </li>
+      </CarDetailsList>
       <Button onClick={toggleModal}>Learn more</Button>
       {isModalOpen && (
         <LearnMoreModal

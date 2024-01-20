@@ -1,6 +1,7 @@
 import { CarItem } from 'components/CarItem/CarItem';
 import { useSelector } from 'react-redux';
 import { selectCars } from 'redux/cars/selectors';
+import { StyledCarItem, StyledCarList } from './CarList.styled';
 
 export const CarList = () => {
   const cars = useSelector(selectCars);
@@ -8,13 +9,13 @@ export const CarList = () => {
   return (
     <>
       {cars.length > 0 && (
-        <ul>
+        <StyledCarList>
           {cars.map(car => (
-            <li key={car.id}>
+            <StyledCarItem key={car.id}>
               <CarItem car={car} />
-            </li>
+            </StyledCarItem>
           ))}
-        </ul>
+        </StyledCarList>
       )}
     </>
   );

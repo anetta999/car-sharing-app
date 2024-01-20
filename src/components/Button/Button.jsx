@@ -1,9 +1,9 @@
-import React from 'react';
+import { BaseButton } from './Button.styled';
 
 export const Button = ({ children, onClick }) => {
   return (
-    <button type="button" onClick={onClick}>
+    <BaseButton type="button" onClick={onClick}>
       {children}
-    </button>
+    </BaseButton>
   );
 };

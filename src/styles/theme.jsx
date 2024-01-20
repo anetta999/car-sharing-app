@@ -1,11 +1,5 @@
 // const SomeName = styled.div`
-//   color: ${({theme}) => theme.color.black};
-
-//   &:hover, &:focus {
-//     color: ${({theme}) => theme.color.secondaryLightBlue};
-//     background-color: ${({theme}) => theme.color.secondaryLightBlue
-//   };
-//   }
+//   color: ${({theme}) => theme.colors.blue};
 
 export const theme = {
   colors: {
