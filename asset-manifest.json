@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/car-sharing-app/static/css/main.cd2e038f.css",
-    "main.js": "/car-sharing-app/static/js/main.56332f85.js",
+    "main.js": "/car-sharing-app/static/js/main.c56a5c8c.js",
     "static/js/983.56ac6e2e.chunk.js": "/car-sharing-app/static/js/983.56ac6e2e.chunk.js",
-    "static/js/601.d8bf2c7a.chunk.js": "/car-sharing-app/static/js/601.d8bf2c7a.chunk.js",
-    "static/js/423.6700f0ef.chunk.js": "/car-sharing-app/static/js/423.6700f0ef.chunk.js",
+    "static/js/245.5bf4757c.chunk.js": "/car-sharing-app/static/js/245.5bf4757c.chunk.js",
+    "static/js/423.d5ebc633.chunk.js": "/car-sharing-app/static/js/423.d5ebc633.chunk.js",
     "static/js/705.fabd94f0.chunk.js": "/car-sharing-app/static/js/705.fabd94f0.chunk.js",
     "static/media/Manrope-Regular.woff": "/car-sharing-app/static/media/Manrope-Regular.2b135e5ff0bae6f7c20e.woff",
     "static/media/Manrope-SemiBold.woff": "/car-sharing-app/static/media/Manrope-SemiBold.b9a59792aa7186dd8f78.woff",
@@ -14,14 +14,14 @@
     "static/media/Manrope-SemiBold.woff2": "/car-sharing-app/static/media/Manrope-SemiBold.d050d77ab6d83ee023d5.woff2",
     "index.html": "/car-sharing-app/index.html",
     "main.cd2e038f.css.map": "/car-sharing-app/static/css/main.cd2e038f.css.map",
-    "main.56332f85.js.map": "/car-sharing-app/static/js/main.56332f85.js.map",
+    "main.c56a5c8c.js.map": "/car-sharing-app/static/js/main.c56a5c8c.js.map",
     "983.56ac6e2e.chunk.js.map": "/car-sharing-app/static/js/983.56ac6e2e.chunk.js.map",
-    "601.d8bf2c7a.chunk.js.map": "/car-sharing-app/static/js/601.d8bf2c7a.chunk.js.map",
-    "423.6700f0ef.chunk.js.map": "/car-sharing-app/static/js/423.6700f0ef.chunk.js.map",
+    "245.5bf4757c.chunk.js.map": "/car-sharing-app/static/js/245.5bf4757c.chunk.js.map",
+    "423.d5ebc633.chunk.js.map": "/car-sharing-app/static/js/423.d5ebc633.chunk.js.map",
     "705.fabd94f0.chunk.js.map": "/car-sharing-app/static/js/705.fabd94f0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.56332f85.js"
+    "static/js/main.c56a5c8c.js"
   ]
 }
