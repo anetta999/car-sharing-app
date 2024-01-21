@@ -58,22 +58,31 @@ export const globalStyles = css`
     scroll-behavior: smooth;
   }
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #9ebbff;
-    border-radius: 8px;
+    background-color: rgba(18, 20, 23, 0.05);
+    border-radius: 10px;
   }
 
   ::-webkit-scrollbar-track {
     background-color: rgba(239, 237, 232, 0.1);
   }
-  select {
+  /* select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  } */
 
   select::-ms-expand {
     display: none;

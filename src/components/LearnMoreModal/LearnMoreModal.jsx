@@ -68,75 +68,77 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
 
   return createPortal(
     <>
-      <Backdrop onClick={handleModalCloseByClickOnBackdrop}>
-        <Modal>
-          <CloseButton type="button" onClick={onClose}>
-            <svg>
-              <use href={`${sprite}#icon-close`}></use>
-            </svg>
-          </CloseButton>
-          <CarImg src={img} alt={make} />
-          <CarTitle>
-            <span>
-              <span>{make}</span> <CarModel>{`${model},`}</CarModel>
-              <span> {year}</span>
-            </span>
-          </CarTitle>
-          <CarFeaturesList>
-            <li>
-              <CarDetails>{address.split(',').splice(-2, 2)[0]}</CarDetails>
-              <CarDetails>{address.split(',').splice(-2, 2)[1]}</CarDetails>
-              <CarDetails>id: {id}</CarDetails>
-              <CarDetails>Year: {year}</CarDetails>
-              <CarDetails>Type: {type}</CarDetails>
-            </li>
-            <li>
-              <CarDetails>Fuel Consumption: {fuelConsumption}</CarDetails>
-              <CarDetails>Engine Size: {engineSize}</CarDetails>
-            </li>
-          </CarFeaturesList>
-          <CarDescriptionText>{description}</CarDescriptionText>
-          <ModalSubHeading>Accessories and functionalities:</ModalSubHeading>
-          <AccessoriesList>
-            {accessories.map(item => (
-              <li key={item}>
-                <CarDetails>{item}</CarDetails>
+      <div>
+        <Backdrop onClick={handleModalCloseByClickOnBackdrop}>
+          <Modal>
+            <CloseButton type="button" onClick={onClose}>
+              <svg>
+                <use href={`${sprite}#icon-close`}></use>
+              </svg>
+            </CloseButton>
+            <CarImg src={img} alt={make} />
+            <CarTitle>
+              <span>
+                <span>{make}</span> <CarModel>{`${model},`}</CarModel>
+                <span> {year}</span>
+              </span>
+            </CarTitle>
+            <CarFeaturesList>
+              <li>
+                <CarDetails>{address.split(',').splice(-2, 2)[0]}</CarDetails>
+                <CarDetails>{address.split(',').splice(-2, 2)[1]}</CarDetails>
+                <CarDetails>id: {id}</CarDetails>
+                <CarDetails>Year: {year}</CarDetails>
+                <CarDetails>Type: {type}</CarDetails>
               </li>
-            ))}
-          </AccessoriesList>
-          <FunctionalitiesList>
-            {functionalities.map(item => (
-              <li key={item}>
-                <CarDetails>{item}</CarDetails>
+              <li>
+                <CarDetails>Fuel Consumption: {fuelConsumption}</CarDetails>
+                <CarDetails>Engine Size: {engineSize}</CarDetails>
               </li>
-            ))}
-          </FunctionalitiesList>
-          <ModalSubHeading>Rental Conditions:</ModalSubHeading>
-          <RentalConditionsList>
-            <li>
-              <RentalConditionsText>
-                {rentalConditions.split('\n')[0].split(':')[0]}:{' '}
-                <span>{rentalConditions.split('\n')[0].split(':')[1]}</span>
-              </RentalConditionsText>
-              <RentalConditionsText>
-                {rentalConditions.split('\n')[1]}
-              </RentalConditionsText>
-            </li>
-            <li>
-              <RentalConditionsText>
-                {rentalConditions.split('\n')[2]}
-              </RentalConditionsText>
-              <RentalConditionsText>
-                Mileage: <span>{mileage}</span>
-              </RentalConditionsText>
-              <RentalConditionsText>
-                Price: <span>{rentalPrice}</span>
-              </RentalConditionsText>
-            </li>
-          </RentalConditionsList>
-          <RentalButton href="tel:+380730000000">Rental car</RentalButton>
-        </Modal>
-      </Backdrop>
+            </CarFeaturesList>
+            <CarDescriptionText>{description}</CarDescriptionText>
+            <ModalSubHeading>Accessories and functionalities:</ModalSubHeading>
+            <AccessoriesList>
+              {accessories.map(item => (
+                <li key={item}>
+                  <CarDetails>{item}</CarDetails>
+                </li>
+              ))}
+            </AccessoriesList>
+            <FunctionalitiesList>
+              {functionalities.map(item => (
+                <li key={item}>
+                  <CarDetails>{item}</CarDetails>
+                </li>
+              ))}
+            </FunctionalitiesList>
+            <ModalSubHeading>Rental Conditions:</ModalSubHeading>
+            <RentalConditionsList>
+              <li>
+                <RentalConditionsText>
+                  {rentalConditions.split('\n')[0].split(':')[0]}:{' '}
+                  <span>{rentalConditions.split('\n')[0].split(':')[1]}</span>
+                </RentalConditionsText>
+                <RentalConditionsText>
+                  {rentalConditions.split('\n')[1]}
+                </RentalConditionsText>
+              </li>
+              <li>
+                <RentalConditionsText>
+                  {rentalConditions.split('\n')[2]}
+                </RentalConditionsText>
+                <RentalConditionsText>
+                  Mileage: <span>{mileage}</span>
+                </RentalConditionsText>
+                <RentalConditionsText>
+                  Price: <span>{rentalPrice}</span>
+                </RentalConditionsText>
+              </li>
+            </RentalConditionsList>
+            <RentalButton href="tel:+380730000000">Rental car</RentalButton>
+          </Modal>
+        </Backdrop>
+      </div>
     </>,
     modalRoot
   );

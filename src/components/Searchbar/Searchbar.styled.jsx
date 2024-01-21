@@ -25,4 +25,19 @@ export const StyledLabel = styled.label`
   line-height: 18px; /* 128.571% */
 `;
 
-export const Select = styled(Field)``;
+export const Select = styled(Field)`
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  }
+`;

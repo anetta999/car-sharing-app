@@ -14,6 +14,7 @@ import {
   LearnMoreButton,
 } from './CarItem.styled';
 import sprite from 'images/sprite.svg';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const CarItem = ({ car }) => {
   const {
@@ -84,11 +85,20 @@ export const CarItem = ({ car }) => {
       </CarDetailsList>
       <LearnMoreButton onClick={toggleModal}>Learn more</LearnMoreButton>
       {isModalOpen && (
-        <LearnMoreModal
-          onClose={toggleModal}
-          car={car}
-          isModalOpen={isModalOpen}
-        />
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, transform: 'scale(0.5)' }}
+            animate={{ opacity: 1, transform: 'scale(1)' }}
+            exit={{ opacity: 0, transform: 'scale(0.5)' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <LearnMoreModal
+              onClose={toggleModal}
+              car={car}
+              isModalOpen={isModalOpen}
+            />
+          </motion.div>
+        </AnimatePresence>
       )}
     </>
   );
