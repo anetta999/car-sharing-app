@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from 'redux/cars/operations';
 import { setCurrentPage } from 'redux/cars/paginationSlice';
 import { selectPagination } from 'redux/cars/selectors';
+import { StyledLoadMoreButton } from './LoadMoreButton.styled';
 
 export const LoadMoreButton = () => {
   const { currentPage } = useSelector(selectPagination);
@@ -17,9 +18,9 @@ export const LoadMoreButton = () => {
 
   return (
     <>
-      <button type="button" onClick={handleLoadMore}>
+      <StyledLoadMoreButton type="button" onClick={handleLoadMore}>
         Load more
-      </button>
+      </StyledLoadMoreButton>
     </>
   );
 };

@@ -7,8 +7,12 @@ export const theme = {
     accent: '#0B44CD',
     headingTextColor: '#121417',
     primaryTextColor: 'rgba(18, 20, 23, 0.50)',
+    modalBcgColor: 'rgba(18, 20, 23, 0.50)',
     buttonTextColor: '#FFF',
+    favoriteButtonColor: '#FFF',
+    primaryBcgColor: '#FFF',
     selectTextColor: 'rgba(18, 20, 23, 0.20)',
+    selectLabelTextColor: '#8a8a89',
     modalTextColor: '#363535',
   },
   transition: {

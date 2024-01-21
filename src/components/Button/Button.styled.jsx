@@ -9,7 +9,7 @@ export const BaseButton = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px; /* 142.857% */
-  transition: ${({ theme }) => theme.transition.main};
+  transition: background-color ${({ theme }) => theme.transition.main};
 
   &:is(:hover, :focus) {
     background-color: ${({ theme }) => theme.colors.accent};

@@ -1,4 +1,3 @@
-import { Button } from 'components/Button/Button';
 import { LearnMoreModal } from 'components/LearnMoreModal/LearnMoreModal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,9 +7,13 @@ import {
   CarDetails,
   CarDetailsList,
   CarImg,
+  CarImgWrap,
   CarModel,
   CarTitle,
+  FavoriteButton,
+  LearnMoreButton,
 } from './CarItem.styled';
+import sprite from 'images/sprite.svg';
 
 export const CarItem = ({ car }) => {
   const {
@@ -48,23 +51,28 @@ export const CarItem = ({ car }) => {
 
   return (
     <>
-      <button
-        onClick={isFavorited ? handleRemoveFavorites : handleSetFavorites}
-        type="button"
-      >
-        {isFavorited ? 'Remove from favorites' : 'Add to favorites'}
-      </button>
-      <CarImg src={img} alt={make} width="274px" />
+      <CarImgWrap>
+        <FavoriteButton
+          onClick={isFavorited ? handleRemoveFavorites : handleSetFavorites}
+          type="button"
+        >
+          <svg data-is-favorited={isFavorited}>
+            <use href={`${sprite}#icon-normal-heart`}></use>
+          </svg>
+        </FavoriteButton>
+        <CarImg src={img} alt={make} />
+      </CarImgWrap>
       <CarTitle>
         <span>
           <span>{make}</span> <CarModel>{`${model},`}</CarModel>
-          <span>{year}</span>
+          <span> {year}</span>
         </span>
         <span>{rentalPrice}</span>
       </CarTitle>
       <CarDetailsList>
         <li>
-          <CarDetails>{address.split(',').splice(-2, 2).join(' ')}</CarDetails>
+          <CarDetails>{address.split(',').splice(-2, 2)[0]}</CarDetails>
+          <CarDetails>{address.split(',').splice(-2, 2)[1]}</CarDetails>
           <CarDetails>{rentalCompany}</CarDetails>
         </li>
         <li>
@@ -74,7 +82,7 @@ export const CarItem = ({ car }) => {
           <CarDetails>{functionalities[0]}</CarDetails>
         </li>
       </CarDetailsList>
-      <Button onClick={toggleModal}>Learn more</Button>
+      <LearnMoreButton onClick={toggleModal}>Learn more</LearnMoreButton>
       {isModalOpen && (
         <LearnMoreModal
           onClose={toggleModal}

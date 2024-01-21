@@ -1,6 +1,21 @@
+import { Button } from 'components/Button/Button';
+import {
+  CarDetails,
+  CarModel,
+  CarTitle,
+} from 'components/CarItem/CarItem.styled';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Link } from 'react-router-dom';
+import {
+  AccessoriesList,
+  Backdrop,
+  CarDescriptionText,
+  CarFeaturesList,
+  CarImg,
+  FunctionalitiesList,
+  Modal,
+  ModalSubHeading,
+} from './LearnMoreModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -19,6 +34,8 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
     accessories,
     functionalities,
     rentalConditions,
+    mileage,
+    rentalPrice,
   } = car;
 
   isModalOpen
@@ -46,39 +63,62 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
 
   return createPortal(
     <>
-      <div onClick={handleModalCloseByClickOnBackdrop}>
-        <div>
+      <Backdrop onClick={handleModalCloseByClickOnBackdrop}>
+        <Modal>
           <button type="button" onClick={onClose}>
             Close
           </button>
-          <img src={img} alt={make} />
-          <h2>{`${make} ${model}, ${year}`}</h2>
-          <p>{address}</p>
-          <p>id: {id}</p>
-          <p>Year: {year}</p>
-          <p>Type: {type}</p>
-          <p>Fuel Consumption: {fuelConsumption}</p>
-          <p>Engine Size: {engineSize}</p>
-          <p>{description}</p>
-          <h3>Accessories and functionalities:</h3>
-          <ul>
+          <CarImg src={img} alt={make} />
+          <CarTitle>
+            <span>
+              <span>{make}</span> <CarModel>{`${model},`}</CarModel>
+              <span> {year}</span>
+            </span>
+          </CarTitle>
+          <CarFeaturesList>
+            <li>
+              <CarDetails>{address.split(',').splice(-2, 2)[0]}</CarDetails>
+              <CarDetails>{address.split(',').splice(-2, 2)[1]}</CarDetails>
+              <CarDetails>id: {id}</CarDetails>
+              <CarDetails>Year: {year}</CarDetails>
+              <CarDetails>Type: {type}</CarDetails>
+            </li>
+            <li>
+              <CarDetails>Fuel Consumption: {fuelConsumption}</CarDetails>
+              <CarDetails>Engine Size: {engineSize}</CarDetails>
+            </li>
+          </CarFeaturesList>
+          <CarDescriptionText>{description}</CarDescriptionText>
+          <ModalSubHeading>Accessories and functionalities:</ModalSubHeading>
+          <AccessoriesList>
             {accessories.map(item => (
               <li key={item}>
-                <p>{item}</p>
+                <CarDetails>{item}</CarDetails>
               </li>
             ))}
-          </ul>
-          <ul>
+          </AccessoriesList>
+          <FunctionalitiesList>
             {functionalities.map(item => (
               <li key={item}>
-                <p>{item}</p>
+                <CarDetails>{item}</CarDetails>
               </li>
             ))}
+          </FunctionalitiesList>
+          <ModalSubHeading>Rental Conditions:</ModalSubHeading>
+          <ul>
+            <li>
+              <p>{rentalConditions.split('\n')[0]}</p>
+              <p>{rentalConditions.split('\n')[1]}</p>
+            </li>
+            <li>
+              <p>{rentalConditions.split('\n')[2]}</p>
+              <p>Mileage: {mileage}</p>
+              <p>Price: {rentalPrice}</p>
+            </li>
           </ul>
-          <p>{rentalConditions}</p>
-          <Link>Rental car</Link>
-        </div>
-      </div>
+          <Button>Rental car</Button>
+        </Modal>
+      </Backdrop>
     </>,
     modalRoot
   );

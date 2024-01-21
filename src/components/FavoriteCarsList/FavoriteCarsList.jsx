@@ -1,4 +1,8 @@
 import { CarItem } from 'components/CarItem/CarItem';
+import {
+  StyledCarItem,
+  StyledCarList,
+} from 'components/CarList/CarList.styled';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/cars/selectors';
 
@@ -8,13 +12,13 @@ export const FavoriteCarsList = () => {
   return (
     <>
       {favorites.length > 0 && (
-        <ul>
+        <StyledCarList>
           {favorites.map(car => (
-            <li key={car.id}>
+            <StyledCarItem key={car.id}>
               <CarItem car={car} />
-            </li>
+            </StyledCarItem>
           ))}
-        </ul>
+        </StyledCarList>
       )}
     </>
   );

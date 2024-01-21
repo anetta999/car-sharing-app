@@ -1,8 +1,8 @@
 import carMarks from 'data/makes.json';
-import { Field, Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { fetchCars } from 'redux/cars/operations';
-import { SubmitButton } from './Searchbar.styled';
+import { StyledForm, StyledLabel, SubmitButton } from './Searchbar.styled';
 
 export const Searchbar = () => {
   const dispatch = useDispatch();
@@ -21,8 +21,8 @@ export const Searchbar = () => {
         }}
       >
         {({ values }) => (
-          <Form>
-            <label>
+          <StyledForm>
+            <StyledLabel>
               Car brand
               <Field name="selectedMark" as="select">
                 <option value={values.selectedMark === 'Enter some text'}>
@@ -34,9 +34,9 @@ export const Searchbar = () => {
                   </option>
                 ))}
               </Field>
-            </label>
+            </StyledLabel>
             <SubmitButton type="submit">Search</SubmitButton>
-          </Form>
+          </StyledForm>
         )}
       </Formik>
     </>

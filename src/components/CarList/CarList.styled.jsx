@@ -4,7 +4,6 @@ export const StyledCarList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   row-gap: 50px;
   column-gap: 29px;
 `;
