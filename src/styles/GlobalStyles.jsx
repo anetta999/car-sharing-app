@@ -9,6 +9,7 @@ import manropeSemiBoldSecond from '../fonts/Manrope-SemiBold.woff2';
 
 export const globalStyles = css`
   body {
+    overflow: auto;
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -56,7 +57,18 @@ export const globalStyles = css`
   html {
     scroll-behavior: smooth;
   }
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
 
+  ::-webkit-scrollbar-thumb {
+    background-color: #9ebbff;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgba(239, 237, 232, 0.1);
+  }
   select {
     -webkit-appearance: none;
     -moz-appearance: none;

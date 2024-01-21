@@ -1,4 +1,3 @@
-import { Button } from 'components/Button/Button';
 import {
   CarDetails,
   CarModel,
@@ -12,10 +11,15 @@ import {
   CarDescriptionText,
   CarFeaturesList,
   CarImg,
+  CloseButton,
   FunctionalitiesList,
   Modal,
   ModalSubHeading,
+  RentalButton,
+  RentalConditionsList,
+  RentalConditionsText,
 } from './LearnMoreModal.styled';
+import sprite from 'images/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -38,10 +42,6 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
     rentalPrice,
   } = car;
 
-  isModalOpen
-    ? (document.body.style.overflow = 'hidden')
-    : (document.body.style.overflow = 'auto');
-
   useEffect(() => {
     const handleModalCloseByEsc = evt => {
       if (evt.code === 'Escape') {
@@ -50,10 +50,15 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
     };
     window.addEventListener('keydown', handleModalCloseByEsc);
 
+    if (isModalOpen || modalRoot.children.length) {
+      document.body.style.overflow = 'hidden';
+    }
+
     return () => {
+      document.body.style.overflow = 'auto';
       window.removeEventListener('keydown', handleModalCloseByEsc);
     };
-  }, [onClose]);
+  }, [onClose, isModalOpen]);
 
   const handleModalCloseByClickOnBackdrop = evt => {
     if (evt.target === evt.currentTarget) {
@@ -65,9 +70,11 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
     <>
       <Backdrop onClick={handleModalCloseByClickOnBackdrop}>
         <Modal>
-          <button type="button" onClick={onClose}>
-            Close
-          </button>
+          <CloseButton type="button" onClick={onClose}>
+            <svg>
+              <use href={`${sprite}#icon-close`}></use>
+            </svg>
+          </CloseButton>
           <CarImg src={img} alt={make} />
           <CarTitle>
             <span>
@@ -105,18 +112,29 @@ export const LearnMoreModal = ({ car, onClose, isModalOpen }) => {
             ))}
           </FunctionalitiesList>
           <ModalSubHeading>Rental Conditions:</ModalSubHeading>
-          <ul>
+          <RentalConditionsList>
             <li>
-              <p>{rentalConditions.split('\n')[0]}</p>
-              <p>{rentalConditions.split('\n')[1]}</p>
+              <RentalConditionsText>
+                {rentalConditions.split('\n')[0].split(':')[0]}:{' '}
+                <span>{rentalConditions.split('\n')[0].split(':')[1]}</span>
+              </RentalConditionsText>
+              <RentalConditionsText>
+                {rentalConditions.split('\n')[1]}
+              </RentalConditionsText>
             </li>
             <li>
-              <p>{rentalConditions.split('\n')[2]}</p>
-              <p>Mileage: {mileage}</p>
-              <p>Price: {rentalPrice}</p>
+              <RentalConditionsText>
+                {rentalConditions.split('\n')[2]}
+              </RentalConditionsText>
+              <RentalConditionsText>
+                Mileage: <span>{mileage}</span>
+              </RentalConditionsText>
+              <RentalConditionsText>
+                Price: <span>{rentalPrice}</span>
+              </RentalConditionsText>
             </li>
-          </ul>
-          <Button>Rental car</Button>
+          </RentalConditionsList>
+          <RentalButton href="tel:+380730000000">Rental car</RentalButton>
         </Modal>
       </Backdrop>
     </>,

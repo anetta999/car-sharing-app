@@ -60,6 +60,8 @@ export const FavoriteButton = styled.button`
   position: absolute;
   top: 14px;
   right: 14px;
+  width: 18px;
+  height: 18px;
   background-color: transparent;
   transition: fill, stroke ${({ theme }) => theme.transition.main};
 
@@ -69,8 +71,8 @@ export const FavoriteButton = styled.button`
   }
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 100%;
+    height: 100%;
     fill: ${({ theme, isFavorited }) =>
       isFavorited ? theme.colors.blue : 'transparent'};
     stroke: ${({ theme, isFavorited }) =>
