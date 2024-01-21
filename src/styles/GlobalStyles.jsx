@@ -69,20 +69,6 @@ export const globalStyles = css`
   ::-webkit-scrollbar-track {
     background-color: rgba(239, 237, 232, 0.1);
   }
-  /* select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    padding: 0 1em 0 0;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-  } */
 
   select::-ms-expand {
     display: none;
