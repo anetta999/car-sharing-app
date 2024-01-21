@@ -65,7 +65,7 @@ export const FavoriteButton = styled.button`
   background-color: transparent;
   transition: fill, stroke ${({ theme }) => theme.transition.main};
 
-  &:is(:hover, :focus) svg {
+  &:is(:hover, :focus) svg[data-is-favorited='false'] {
     fill: ${({ theme }) => theme.colors.blue};
     stroke: ${({ theme }) => theme.colors.blue};
   }
@@ -73,10 +73,8 @@ export const FavoriteButton = styled.button`
   svg {
     width: 100%;
     height: 100%;
-    fill: ${({ theme, isFavorited }) =>
-      isFavorited ? theme.colors.blue : 'transparent'};
-    stroke: ${({ theme, isFavorited }) =>
-      isFavorited ? 'transparent' : theme.colors.favoriteButtonColor};
+    fill: transparent;
+    stroke: ${({ theme }) => theme.colors.favoriteButtonColor};
     stroke-width: 1.5;
     stroke-opacity: 0.8;
   }
@@ -84,6 +82,11 @@ export const FavoriteButton = styled.button`
   svg[data-is-favorited='true'] {
     fill: ${({ theme }) => theme.colors.blue};
     stroke: transparent;
+  }
+
+  svg[data-is-favorited='false'] {
+    fill: transparent;
+    stroke: ${({ theme }) => theme.colors.favoriteButtonColor};
   }
 `;
 

@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { fetchCars } from 'redux/cars/operations';
 import {
   selectCars,
-  selectError,
   selectLoading,
   selectPagination,
 } from 'redux/cars/selectors';
@@ -16,7 +15,6 @@ export const CatalogPage = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
   const { currentPage } = useSelector(selectPagination);
 
   useEffect(() => {
@@ -26,7 +24,6 @@ export const CatalogPage = () => {
   return (
     <>
       <Section>
-        {isLoading && !error && <p>Loading...</p>}
         <Searchbar />
         <CarList />
         {cars.length > 0 && !isLoading && currentPage < 3 && <LoadMoreButton />}

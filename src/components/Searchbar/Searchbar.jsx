@@ -1,11 +1,15 @@
+import { ButtonLoader } from 'components/Loader/Loader';
 import carMarks from 'data/makes.json';
 import { Field, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from 'redux/cars/operations';
+import { selectError, selectLoading } from 'redux/cars/selectors';
 import { StyledForm, StyledLabel, SubmitButton } from './Searchbar.styled';
 
 export const Searchbar = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   return (
     <>
@@ -35,7 +39,9 @@ export const Searchbar = () => {
                 ))}
               </Field>
             </StyledLabel>
-            <SubmitButton type="submit">Search</SubmitButton>
+            <SubmitButton type="submit">
+              Search {isLoading && !error && <ButtonLoader />}
+            </SubmitButton>
           </StyledForm>
         )}
       </Formik>
